@@ -12,6 +12,7 @@ function LoginForm() {
   const navigate = useNavigate();
   const { showToast } = useFeedback();
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const schema = object({
     email: string()
       .email('Provide a valid email address')
@@ -31,11 +32,16 @@ function LoginForm() {
   });
 
   const handleLogin = async (data) => {
-    if (await login(data)) {
-      showToast({ type: 'success', message: 'Login successful' });
-      navigate('/dashboard');
-    } else {
-      showToast({ type: 'error', message: 'Login failed' });
+    setLoading(true);
+    try {
+      if (await login(data)) {
+        showToast({ type: 'success', message: 'Login successfull' });
+        navigate('/dashboard');
+      }
+    } catch (error) {
+      showToast({ type: 'error', message: error.message });
+    } finally {
+      setLoading(false);
     }
   };
   return (
@@ -102,7 +108,9 @@ function LoginForm() {
             </p>
           </div>
         </div>
-        <button className="btn btn-primary btn-outline">Sign In</button>
+        <button disabled={loading} className="btn btn-primary btn-outline">
+          {loading ? 'Loading...' : 'Login'}
+        </button>
       </form>
     </div>
   );

@@ -12,10 +12,8 @@ export const login = async (user) => {
       );
       return true;
     }
-    return false;
   } catch (error) {
-    console.log(error);
-    return false;
+    throw new Error(error.response.data.message);
   }
 };
 
