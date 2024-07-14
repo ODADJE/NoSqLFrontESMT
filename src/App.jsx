@@ -27,10 +27,6 @@ function App() {
       children: [
         {
           index: true,
-          element: <Home />,
-        },
-        {
-          path: 'users',
           element: <User />,
         },
       ],

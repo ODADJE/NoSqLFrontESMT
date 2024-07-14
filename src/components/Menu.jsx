@@ -7,13 +7,8 @@ export const menuItems = [
     menuName: 'Main menu',
     items: [
       {
-        label: 'Dashboard',
-        link: '/dashboard',
-        icon: <FaTachometerAlt />,
-      },
-      {
         label: 'Users',
-        link: '/dashboard/users',
+        link: '/dashboard',
         icon: <FaUserAlt />,
       },
     ],
