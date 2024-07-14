@@ -2,7 +2,7 @@ import React from 'react';
 
 function HamburgerButton() {
   return (
-    <label htmlFor="my-drawer" className="drawer-button block lg:hidden">
+    <label htmlFor="my-drawer" className="drawer-button block xl:hidden">
       <svg
         className="swap-off fill-current"
         xmlns="http://www.w3.org/2000/svg"

@@ -5,7 +5,7 @@ import Profile from './Profile';
 
 function LeftSide() {
   return (
-    <div className="flex gap-4 items-center">
+    <div className="flex gap-4 items-center mx-auto md:mx-0 mb-3">
       <Settings />
       <Profile />
     </div>
