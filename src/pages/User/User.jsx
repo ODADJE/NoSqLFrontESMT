@@ -53,7 +53,7 @@ function User() {
       }
       await GetAllUsers();
     } catch (error) {
-      showToast({ type: 'error', message: 'user not deleted, try again' });
+      showToast({ type: 'error', message: error.message });
     } finally {
       setLoading(false);
     }
